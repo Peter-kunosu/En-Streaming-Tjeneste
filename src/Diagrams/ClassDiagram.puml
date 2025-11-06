@@ -64,7 +64,9 @@ FileIO : readFile();
 class TextUI
 TextUI : -Scanner scan
 TextUI : displayMsg();
-TextUI : readInput();
+TextUI : readInputNum();
+TextUI : readInputText();
+TextUI : choiceYN();
 }
 Main --- TemuNetflix
 TemuNetflix "1"<-- StartMenu
