@@ -1,2 +1,2 @@
-public class Login {
+public interface Login {
 }

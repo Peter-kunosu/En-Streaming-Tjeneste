@@ -1,2 +1,2 @@
-public class Movie extends Medie{
+public class Movie extends Media{
 }
