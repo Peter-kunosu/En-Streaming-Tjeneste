@@ -1,33 +1,49 @@
 @startuml
 'https://plantuml.com/class-diagram
 
+class Main
+Main : +static void main(String[] args)
 class TemuNetflix
-abstract class StartMenu
-StartMenu --- User
-abstract class Menu
-Menu : -Arraylist<String> Options
-Menu : +Arraylist<String> displayOptions();
-Menu --- Medie
-class Medie
-Medie : -String title
-Medie : -flaot rating
-Medie : -Arraylist<String> categorie
-Medie : +Arraylist<String> displayCategorie();
-Medie : +String getTitle();
-Medie : +float getRating();
-Medie : +String getCategorie();
-class Movie extends Medie
+TemuNetflix : +void startStartMenu();
+TemuNetflix : -Arraylist<String> Options
+TemuNetflix : +Arraylist<String> displayOptions();
+TemuNetflix : +void searchMovie(String movieName);
+TemuNetflix : +void listCategory(Arraylist<String> Category);
+TemuNetflix : +void listWatchedMovies(User username, String[] watchedMovies);
+TemuNetflix : +void listSavedMovies(User username, String[] savedMovies);
+TemuNetflix : +void chosenMovie(String title);
+TemuNetflix : +void chosenSeries(String title, int episode);
+TemuNetflix : +void saveMovie(String title);
+TemuNetflix : +void watchMovie(String title);
+TemuNetflix : +void saveSeries(String title, int episode);
+TemuNetflix : +void watchSeries(String title, int episode);
+
+
+
+abstract class StartMenu implements Login
+class Media
+Media : -String title
+Media : -float rating
+Media : -Arraylist<String> category
+Media : +Arraylist<String> displayCategory();
+Media : +String getTitle();
+Media : +float getRating();
+Media : +String getCategory();
+
+class Movie extends Media
 Movie : -int releaseDate
 Movie : +int getReleaseDate();
-class Serie extends Medie
-Serie : -String activeYears
-Serie : -int totalEpisodes
-Serie : -Array[season][episode] episode
-Serie : +String getActiveYears();
-Serie : +int getTotalEpisodes();
-Serie : +Array[season][episode] displayEpisode();
-Serie : +int getEpisode();
-class User implements Login
+
+class Series extends Media
+Series : -String activeYears
+Series : -int totalEpisodes
+Series : -Array[season][episode] episode
+Series : +String getActiveYears();
+Series : +int getTotalEpisodes();
+Series : +Array[season][episode] displayEpisode();
+Series : +int getEpisode();
+
+class User
 User : -username
 User : -password
 User : -Arraylist<String> watchedMovies
@@ -35,7 +51,6 @@ User : -Arraylist<String> savedMovies
 User : +getUserName();
 User : +getWatchedMovies();
 User : +getSavedMovies();
-User --- Menu
 
 interface Login
 Login : +checkLogin();
@@ -43,13 +58,19 @@ Login : +newLogin();
 Login : +guest();
 
 package "Util" #DDDDDD{
-    class FileIO
-    FileIO : createFile();
-    FileIO : readFile();
-    class TextUI
-    TextUI : -Scanner scan
-    TextUI : displayMsg();
-    TextUI : readInput();
+class FileIO
+FileIO : createFile();
+FileIO : readFile();
+class TextUI
+TextUI : -Scanner scan
+TextUI : displayMsg();
+TextUI : readInput();
 }
+Main --- TemuNetflix
+TemuNetflix "1"<-- StartMenu
+TemuNetflix "x"<-- Media
+StartMenu <-- User
+TemuNetflix *-- TextUI
+TemuNetflix *-- FileIO
 
 @enduml
