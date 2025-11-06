@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class TemuNetflix
+abstract class StartMenu
+StartMenu --- User
+abstract class Menu
+Menu : -Arraylist<String> Options
+Menu : +Arraylist<String> displayOptions();
+Menu --- Medie
+class Medie
+Medie : -String title
+Medie : -flaot rating
+Medie : -Arraylist<String> categorie
+Medie : +Arraylist<String> displayCategorie();
+Medie : +String getTitle();
+Medie : +float getRating();
+Medie : +String getCategorie();
+class Movie extends Medie
+Movie : -int releaseDate
+Movie : +int getReleaseDate();
+class Serie extends Medie
+Serie : -String activeYears
+Serie : -int totalEpisodes
+Serie : -Array[season][episode] episode
+Serie : +String getActiveYears();
+Serie : +int getTotalEpisodes();
+Serie : +Array[season][episode] displayEpisode();
+Serie : +int getEpisode();
+class User implements Login
+User : -username
+User : -password
+User : -Arraylist<String> watchedMovies
+User : -Arraylist<String> savedMovies
+User : +getUserName();
+User : +getWatchedMovies();
+User : +getSavedMovies();
+User --- Menu
+
+interface Login
+Login : +checkLogin();
+Login : +newLogin();
+Login : +guest();
+
+package "Util" #DDDDDD{
+    class FileIO
+    FileIO : createFile();
+    FileIO : readFile();
+    class TextUI
+    TextUI : -Scanner scan
+    TextUI : displayMsg();
+    TextUI : readInput();
+}
+
+@enduml
