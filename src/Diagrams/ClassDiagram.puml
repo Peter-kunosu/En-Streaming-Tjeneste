@@ -4,6 +4,7 @@
 class Main
 Main : +static void main(String[] args)
 class TemuNetflix
+TemuNetflix : -Arraylist<Media> Media
 TemuNetflix : +void startStartMenu();
 TemuNetflix : -Arraylist<String> Options
 TemuNetflix : +Arraylist<String> displayOptions();
@@ -20,7 +21,10 @@ TemuNetflix : +void watchSeries(String title, int episode);
 
 
 
-abstract class StartMenu implements Login
+abstract class StartMenu
+StartMenu : +checkLogin();
+StartMenu : +newLogin();
+StartMenu : +guest();
 class Media
 Media : -String title
 Media : -float rating
@@ -30,11 +34,11 @@ Media : +String getTitle();
 Media : +float getRating();
 Media : +String getCategory();
 
-class Movie extends Media
+class Movie extends Media implements playable
 Movie : -int releaseDate
 Movie : +int getReleaseDate();
 
-class Series extends Media
+class Series extends Media implements playable
 Series : -String activeYears
 Series : -int totalEpisodes
 Series : -Array[season][episode] episode
@@ -46,16 +50,15 @@ Series : +int getEpisode();
 class User
 User : -username
 User : -password
-User : -Arraylist<String> watchedMovies
-User : -Arraylist<String> savedMovies
+User : -Arraylist<Media> watchedMovies
+'kan være String skal være Media
+User : -Array[season][episode] watchedSeries
+User : -Arraylist<Media> savedMovies
 User : +getUserName();
 User : +getWatchedMovies();
 User : +getSavedMovies();
 
-interface Login
-Login : +checkLogin();
-Login : +newLogin();
-Login : +guest();
+interface playable
 
 package "Util" #DDDDDD{
 class FileIO
