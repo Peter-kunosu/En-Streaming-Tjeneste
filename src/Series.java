@@ -19,9 +19,7 @@ public class Series extends Media {
         } */
         for (int i = 0; i < episodes.length; i++){
             for (int j = 0; j < episodes[i].length; j++){
-                int number = 1;
-                number++;
-                count += number;
+                count++;
             }
         }
         return count;
