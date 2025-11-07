@@ -1,17 +1,26 @@
-import java.lang.reflect.Array;
+import java.util.Arrays;
 
-public class Series extends Media{
+public class Series extends Media {
     private String activeYears;
     private int totalEpisodes;
-    private Array[][] episode;
+    private String[][] episodes;
 
-    public Series(String title, float rating, String category, Array[][] episode) {
+    public Series(String title, double rating, String category, String[][] episodes, String activeYears) {
         super(title, rating, category);
-        this.episode = episode;
+        this.episodes = episodes;
+        this.activeYears = activeYears;
+        this.totalEpisodes = countTotalEpisodes();
+    }
+
+    private int countTotalEpisodes() {
+        int count = 0;
+        for (String[] season : episodes) {
+            count += season.length;
+        }
+        return count;
     }
 
     public int getTotalEpisodes() {
-        totalEpisodes = episode.length;
         return totalEpisodes;
     }
 
@@ -19,7 +28,30 @@ public class Series extends Media{
         return activeYears;
     }
 
-    public Array[][] getEpisode() {
-        return episode;
+    public String[][] getEpisodes() {
+        return episodes;
     }
+
+    public void setActiveYears(String activeYears) {
+        this.activeYears = activeYears;
+    }
+
+    public void setEpisode(String[][] episodes) {
+        this.episodes = episodes;
+        this.totalEpisodes = countTotalEpisodes();
+    }
+
+    @Override
+    public String toString() {
+        return "Series{" +
+                "title='" + getTitle() + '\'' +
+                ", category='" + getCategory() + '\'' +
+                ", rating=" + getRating() +
+                ", activeYears='" + activeYears + '\'' +
+                ", totalEpisodes=" + totalEpisodes +
+                ", seasons=" + episodes.length +
+                '}';
+    }
+
 }
+
