@@ -34,8 +34,8 @@ ArrayList<Media> savedSeries;
             System.out.println("No watched series");
         } else {
             System.out.println("Watched series:");
-            for (ArrayList<Media> S : watchedSeries) {
-                System.out.println(" - " + S);
+            for (ArrayList<Media> s : watchedSeries) {
+                System.out.println(" - " + s);
             }
         }
     }
