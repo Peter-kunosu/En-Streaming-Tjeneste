@@ -2,10 +2,10 @@ public class Movie extends Media{
     private int duration;
     private int releaseDate;
 
-    public Movie(String title, double rating, String category, int duration, int realeaseDate) {
+    public Movie(String title, double rating, String category, int duration, int releaseDate) {
         super(title, rating, category);
         this.duration = duration;
-        this.releaseDate = realeaseDate;
+        this.releaseDate = releaseDate;
     }
 
     public int getDuration() {
@@ -16,12 +16,12 @@ public class Movie extends Media{
         this.duration = duration;
     }
 
-    public int getRealeaseDate() {
+    public int getReleaseDate() {
         return releaseDate;
     }
 
-    public void setRealeaseDate(int realeaseDate) {
-        this.releaseDate = realeaseDate;
+    public void setRealeaseDate(int releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     @Override
