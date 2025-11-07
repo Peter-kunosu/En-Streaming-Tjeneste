@@ -14,8 +14,15 @@ public class Series extends Media {
 
     private int countTotalEpisodes() {
         int count = 0;
-        for (String[] season : episodes) {
+        /*for (String[] season : episodes) {
             count += season.length;
+        } */
+        for (int i = 0; i < episodes.length; i++){
+            for (int j = 0; j < episodes[i].length; j++){
+                int number = 1;
+                number++;
+                count += number;
+            }
         }
         return count;
     }
