@@ -35,5 +35,18 @@ public class FileIO {
     }
     //muligt der mangler en metode til at læse filen som indeholder userInfoet
     //som er tweaket til at læse igennem for et matchene brugernavn og password
+    public void createUserFile(String username, String password, ArrayList<String> watchedMovies,
+                               ArrayList<String> watchedSeries, ArrayList<String> savedMovies,
+                               String path){
+        try {
+            FileWriter writer = new FileWriter(path);
+            for (String s : userInfo) {
+                writer.write(s+"\n");
+            }
+            writer.close();
 
+        }catch (IOException e) {
+            System.out.println("problem: "+ e.getMessage());
+        }
+    }
 }

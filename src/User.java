@@ -7,6 +7,7 @@ String password;
 ArrayList<Media> watchedMovies;
 ArrayList<ArrayList<Media>> watchedSeries;
 ArrayList<Media> savedMovies;
+ArrayList<Media> savedSeries;
 
     public User(String username, String password) {
         this.username = username;
@@ -14,6 +15,7 @@ ArrayList<Media> savedMovies;
         this.watchedMovies = new ArrayList<>();
         this.watchedSeries = new ArrayList<>();
         this.savedMovies = new ArrayList<>();
+        this.savedSeries = new ArrayList<>();
     }
 
     public void showWatchedMovies(){
@@ -46,6 +48,17 @@ ArrayList<Media> savedMovies;
             System.out.println("Saved movies:");
             for (Media sM : savedMovies) {
                 System.out.println(" - " + sM);
+            }
+        }
+    }
+
+    public void showSavedSeries(){
+        if(savedSeries.isEmpty()){
+            System.out.println("No saved series");
+        } else {
+            System.out.println("Saved series:");
+            for (Media sS : savedSeries) {
+            System.out.println(" - " + sS);
             }
         }
     }
