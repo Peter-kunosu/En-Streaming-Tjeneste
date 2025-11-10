@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import util.FileIO;
 import util.TextUI;
 
-public abstract class StartMenu{
-    private ArrayList<String> options = new ArrayList<>();
-    FileIO io = new FileIO();
-    TextUI ui = new TextUI();
-    private String username;
-    private String password;
+public class StartMenu{
+    private static ArrayList<String> options = new ArrayList<>();
+    static FileIO io = new FileIO();
+    static TextUI ui = new TextUI();
+    private static String username;
+    private static String password;
 
     public String getUsername() {
         return username;
@@ -18,7 +18,7 @@ public abstract class StartMenu{
         return password;
     }
 
-    public void start() {
+    public static void start() {
         options.add("Vil du logge ind eller lave et nyt login");
         options.add("1: Login");
         options.add("2: nyt Login");

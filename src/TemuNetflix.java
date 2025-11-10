@@ -11,9 +11,4 @@ public class TemuNetflix {
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
 
-    private StartMenu startMenu;
-
-    public void startStartMenu(){
-
-    }
 }
