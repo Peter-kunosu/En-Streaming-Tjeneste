@@ -1,5 +1,8 @@
 import java.io.File;
 import java.util.ArrayList;
+
+import entity.Media;
+import entity.User;
 import util.FileIO;
 import util.TextUI;
 
@@ -10,11 +13,11 @@ public class StartMenu{
     private static String username;
     private static String password;
 
-    public String getUsername() {
+    public static String getUsername() {
         return username;
     }
 
-    public String getPassword() {
+    public static String getPassword() {
         return password;
     }
 
@@ -37,9 +40,11 @@ public class StartMenu{
 
                 }
             } else if (userChoice == 2) {
-                ui.displayMsg("Du skal nu lave et nytlogin!");
+                ui.displayMsg("Du skal nu lave et nyt login!");
                 username = ui.readInputText("Indtast username: ");
                 password = ui.readInputText("Indtast password: ");
+                User user = new User(username, password);
+                user.CreateUserFile("src/Data/Bruger/"+ StartMenu.getUsername());
                 ui.displayMsg("Ny user er lavet, samt logget ind som " + username);
 
             }
