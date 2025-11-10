@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package entity;
 
 public class Media {
 
@@ -38,7 +38,7 @@ public class Media {
 
     @Override
     public String toString() {
-        return "Media{" +
+        return "entity.Media{" +
                 "title='" + title + '\'' +
                 ", rating=" + rating +
                 ", category='" + category + '\'' +
