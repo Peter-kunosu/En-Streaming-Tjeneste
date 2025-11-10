@@ -52,7 +52,7 @@ class User
 User : -username
 User : -password
 User : -Arraylist<Media> watchedMovies
-'kan være String skal være Media
+'kan være String skal være entity.Media
 User : -Array[season][episode] watchedSeries
 User : -Arraylist<Media> savedMovies
 User : +getUserName();
