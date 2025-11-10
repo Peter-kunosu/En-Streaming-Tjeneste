@@ -19,12 +19,12 @@ public class FileIO {
             System.out.println("problem: "+ e.getMessage());
         }
     }
-    public ArrayList<String> readFile(String path){
+    public ArrayList<String> readFile(String path) {
         ArrayList<String> data = new ArrayList<>();
         File file = new File(path);
         try {
             Scanner scan = new Scanner(file);
-            while(scan.hasNextLine()) {
+            while (scan.hasNextLine()) {
                 String line = scan.nextLine();
                 data.add(line);
             }
@@ -35,6 +35,16 @@ public class FileIO {
     }
     //muligt der mangler en metode til at læse filen som indeholder userInfoet
     //som er tweaket til at læse igennem for et matchene brugernavn og password
+    public void appendStrToFile(String fileName,String s){
+        try {
+            
+        }
+    }
+
+
+
+
+    //test
     public void createUserFile(String username, String password, ArrayList<String> watchedMovies,
                                ArrayList<String> watchedSeries, ArrayList<String> savedMovies,
                                String path){
