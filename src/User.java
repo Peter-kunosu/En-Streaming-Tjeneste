@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class User{
@@ -36,7 +39,7 @@ ArrayList<Media> savedSeries;
 
 
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write("Username: "+username);
             writer.newLine();
             writer.write("Password: "+password);
