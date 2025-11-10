@@ -22,6 +22,20 @@ ArrayList<Media> savedSeries;
         if(!path.endsWith(".txt")){
             path += ".txt";
         }
+
+        File file = new File(path);
+
+        int count = 1;
+        while(file.exists()){
+            String newPath;
+            int index = path.lastIndexOf(".txt");
+            newPath = path.substring(0, index) + "_" + count + ".txt";
+            file = new File(newPath);
+            count++;
+        }
+
+
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             writer.write("Username: "+username);
             writer.newLine();
