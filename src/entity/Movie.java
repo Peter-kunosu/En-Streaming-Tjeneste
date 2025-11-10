@@ -1,4 +1,6 @@
-public class Movie extends Media{
+package entity;
+
+public class Movie extends Media {
     private int duration;
     private int releaseDate;
 
@@ -26,7 +28,7 @@ public class Movie extends Media{
 
     @Override
     public String toString() {
-        return "Movie{" +
+        return "entity.Movie{" +
                 "duration=" + duration +
                 ", realeaseDate=" + releaseDate +
                 '}';

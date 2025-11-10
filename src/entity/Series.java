@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package entity;
 
 public class Series extends Media {
     private String activeYears;
@@ -48,7 +48,7 @@ public class Series extends Media {
 
     @Override
     public String toString() {
-        return "Series{" +
+        return "entity.Series{" +
                 "title='" + getTitle() + '\'' +
                 ", category='" + getCategory() + '\'' +
                 ", rating=" + getRating() +
