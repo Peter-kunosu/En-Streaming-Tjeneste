@@ -27,7 +27,6 @@ public class StartMenu{
         options.add("2: nyt Login");
 
         //læser bruger intastning
-        ui.displayMsg(options.get(0)+"\n"+options.get(1)+"\n"+options.get(2));
         int userChoice = ui.readInputNum(options.get(0)+"\n"+options.get(1)+" "+options.get(2));
         try {
             if (userChoice == 1) {
