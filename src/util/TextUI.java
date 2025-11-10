@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TextUI {
-    private static Scanner scan;
+    private static Scanner scan = new Scanner(System.in);
 
     public void displayMsg(String msg) {
         System.out.println();
