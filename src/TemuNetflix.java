@@ -13,7 +13,7 @@ public class TemuNetflix {
 
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
-    User user = new User();
+    User user = new User(StartMenu.getUsername(), StartMenu.getPassword());
 
     public void menuChoices(){
         ui.displayMsg(
@@ -31,12 +31,12 @@ public class TemuNetflix {
         switch (choice) {
             case 1:
                 ui.displayMsg("Du valgte: Movies");
-
+                loadMediaData("Data/film.txt");
                 break;
 
             case 2:
                 ui.displayMsg("Du valgte: Serier");
-
+                loadMediaData("Data/serier.txt");
                 break;
 
             case 3:
