@@ -18,6 +18,7 @@ public class TemuNetflix {
 
     public void menuChoices() {
         boolean running = true;
+        int userChoice;
 
         while (running) {
             ui.displayMsg(
@@ -32,42 +33,78 @@ public class TemuNetflix {
             );
 
             int choice = ui.readInputNum("Vælg en mulighed:");
-
+            int counter = 0;
             switch (choice) {
                 case 1:
                     ui.displayMsg("Du valgte: Film");
                     loadMediaData("src/Data/film.txt");
                     for (Media s : movies) {
-                        ui.displayMsg(s.toString());
+                        counter++;
+                        ui.displayMsg(counter+":" +s.toString());
+                    }
+                    // vælg en film fra listen
+                    userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
+                    if (ui.choiceYN("du har nu valgt: "+movies.get(userChoice)+" er det korrekt? (Y/N)")){
+                        //movies.get(counter).play
+                        ui.displayMsg("ser nu "+movies.get(userChoice));
                     }
                     break;
-
                 case 2:
                     ui.displayMsg("Du valgte: Serier");
                     loadMediaData("src/Data/serier.txt");
                     for (Media s : serier) {
                         ui.displayMsg(s.toString());
                     }
+                    // vælg en serie fra listen
+                    userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
+                    if (ui.choiceYN("du har nu valgt: "+serier.get(userChoice)+" er det korrekt? (Y/N)")){
+                        //movies.get(counter).play
+                        ui.displayMsg("ser nu "+serier.get(userChoice));
+                    }
                     break;
 
                 case 3:
                     ui.displayMsg("Du valgte: Sete Film");
                     user.showWatchedMovies();
+                    // vælg en film/serie fra listen
+                    userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
+                    if (ui.choiceYN("du har nu valgt: "+user.watchedMovies.get(userChoice)+" er det korrekt? (Y/N)")){
+                        //movies.get(counter).play
+                        ui.displayMsg("ser nu "+user.watchedMovies.get(userChoice));
+                    }
                     break;
 
                 case 4:
                     ui.displayMsg("Du valgte: Sete Serier");
                     user.showWatchedSeries();
+                    // vælg en film/serie fra listen
+                    userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
+                    if (ui.choiceYN("du har nu valgt: "+user.watchedSeries.get(userChoice)+" er det korrekt? (Y/N)")){
+                        //movies.get(counter).play
+                        ui.displayMsg("ser nu "+user.watchedSeries.get(userChoice));
+                    }
                     break;
 
                 case 5:
                     ui.displayMsg("Du valgte: Gemte Film");
                     user.showSavedMovies();
+                    // vælg en film/serie fra listen
+                    userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
+                    if (ui.choiceYN("du har nu valgt: "+user.savedMovies.get(userChoice)+" er det korrekt? (Y/N)")){
+                        //movies.get(counter).play
+                        ui.displayMsg("ser nu "+user.savedMovies.get(userChoice));
+                    }
                     break;
 
                 case 6:
                     ui.displayMsg("Du valgte: Gemte Serier");
                     user.showSavedSeries();
+                    // vælg en film/serie fra listen
+                    userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
+                    if (ui.choiceYN("du har nu valgt: "+user.savedSeries.get(userChoice)+" er det korrekt? (Y/N)")){
+                        //movies.get(counter).play
+                        ui.displayMsg("ser nu "+user.savedSeries.get(userChoice));
+                    }
                     break;
 
                 case 0:

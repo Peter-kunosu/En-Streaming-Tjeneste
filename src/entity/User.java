@@ -9,8 +9,8 @@ String username;
 String password;
 public ArrayList<Media> watchedMovies;
 public ArrayList<ArrayList<Media>> watchedSeries;
-ArrayList<Media> savedMovies;
-ArrayList<Media> savedSeries;
+public ArrayList<Media> savedMovies;
+public ArrayList<Media> savedSeries;
 
 
     public User(String username, String password) {
