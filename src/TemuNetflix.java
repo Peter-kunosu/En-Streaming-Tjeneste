@@ -16,54 +16,65 @@ public class TemuNetflix {
     FileIO io = new FileIO();
     User user = new User(StartMenu.getUsername(), StartMenu.getPassword());
 
-    public void menuChoices(){
-        ui.displayMsg(
-                "Welcome to the TemuNetflix" +
-                        "\n1. Movies" +
-                        "\n2. Serier" +
-                        "\n3. Sete Film" +
-                        "\n4. Sete Serier" +
-                        "\n5. Gemte Film" +
-                        "\n6. Gemte Serier"
-        );
+    public void menuChoices() {
+        boolean running = true;
 
-        int choice = ui.readInputNum("Vælg en mulighed:");
+        while (running) {
+            ui.displayMsg(
+                    "\n=== Velkommen til TemuNetflix ===" +
+                            "\n1. Film" +
+                            "\n2. Serier" +
+                            "\n3. Sete Film" +
+                            "\n4. Sete Serier" +
+                            "\n5. Gemte Film" +
+                            "\n6. Gemte Serier" +
+                            "\n0. Afslut"
+            );
 
-        switch (choice) {
-            case 1:
-                ui.displayMsg("Du valgte: Movies");
-                loadMediaData("Data/film.txt");
-                ui.displayMsg(movies.toString());;
-                break;
+            int choice = ui.readInputNum("Vælg en mulighed:");
 
-            case 2:
-                ui.displayMsg("Du valgte: Serier");
-                loadMediaData("Data/serier.txt");
-                break;
+            switch (choice) {
+                case 1:
+                    ui.displayMsg("Du valgte: Film");
+                    loadMediaData("Data/film.txt");
+                    ui.displayMsg(movies.toString());
+                    break;
 
-            case 3:
-                ui.displayMsg("Du valgte: Sete Film");
-                user.showWatchedMovies();
-                break;
+                case 2:
+                    ui.displayMsg("Du valgte: Serier");
+                    loadMediaData("Data/serier.txt");
+                    ui.displayMsg(serier.toString());
+                    break;
 
-            case 4:
-                ui.displayMsg("Du valgte: Sete Serier");
-                user.showWatchedSeries();
-                break;
+                case 3:
+                    ui.displayMsg("Du valgte: Sete Film");
+                    user.showWatchedMovies();
+                    break;
 
-            case 5:
-                ui.displayMsg("Du valgte: Gemte Film");
-                user.showSavedMovies();
-                break;
+                case 4:
+                    ui.displayMsg("Du valgte: Sete Serier");
+                    user.showWatchedSeries();
+                    break;
 
-            case 6:
-                ui.displayMsg("Du valgte: Gemte Serier");
-                user.showSavedSeries();
-                break;
+                case 5:
+                    ui.displayMsg("Du valgte: Gemte Film");
+                    user.showSavedMovies();
+                    break;
 
-            default:
-                ui.displayMsg("Ugyldigt valg – prøv igen!");
-                break;
+                case 6:
+                    ui.displayMsg("Du valgte: Gemte Serier");
+                    user.showSavedSeries();
+                    break;
+
+                case 0:
+                    ui.displayMsg("Farvel og tak for denne gang!");
+                    running = false;
+                    break;
+
+                default:
+                    ui.displayMsg("Ugyldigt valg – prøv igen!");
+                    break;
+            }
         }
     }
 

@@ -10,7 +10,7 @@ public class Main {
         StartMenu.start();
 
         //options til at kunne vælge imellem film, serier, sete film, sete serier.
-
+        netflix.menuChoices();
 
     }
 }
