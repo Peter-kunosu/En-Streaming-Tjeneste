@@ -28,7 +28,10 @@ public class Movie extends Media {
 
     @Override
     public String toString() {
-        return "entity.Movie{" +
+        return "entity.Movie{"+
+                "title='" + super.getTitle() + '\'' +
+                ", rating=" + super.getRating() +
+                ", category='" + super.getCategory() + '\''+
                 "duration=" + duration +
                 ", realeaseDate=" + releaseDate +
                 '}';

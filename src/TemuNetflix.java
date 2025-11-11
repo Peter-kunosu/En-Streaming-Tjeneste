@@ -8,7 +8,8 @@ import util.FileIO;
 import java.util.ArrayList;
 
 public class TemuNetflix {
-    public ArrayList<Media> media;
+    public ArrayList<Media> movies = new ArrayList<>();;
+    public ArrayList<Media> serier = new ArrayList<>();;
     private ArrayList<String> options;
 
     TextUI ui = new TextUI();
@@ -32,6 +33,7 @@ public class TemuNetflix {
             case 1:
                 ui.displayMsg("Du valgte: Movies");
                 loadMediaData("Data/film.txt");
+                ui.displayMsg(movies.toString());;
                 break;
 
             case 2:
@@ -70,7 +72,7 @@ public class TemuNetflix {
     }
     public void loadMediaData(String path) {
         ArrayList<String> data = io.readFile(path);
-        media = new ArrayList<>();
+
 
         for (String line : data) {
             // Fjern evt. whitespace
@@ -93,11 +95,11 @@ public class TemuNetflix {
                 String[][] episodes = parseEpisodeInfo(episodeInfo);
 
                 Series series = new Series(title, rating, category, episodes, activeYears);
-                media.add(series);
+                serier.add(series);
             } else {
                 int releaseYear = Integer.parseInt(year);
                 Movie movie = new Movie(title, rating, category, 120, releaseYear);
-                media.add(movie);
+                movies.add(movie);
             }
         }
     }
