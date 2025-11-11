@@ -36,13 +36,13 @@ public class TemuNetflix {
             switch (choice) {
                 case 1:
                     ui.displayMsg("Du valgte: Film");
-                    loadMediaData("Data/film.txt");
+                    loadMediaData("src/Data/film.txt");
                     ui.displayMsg(movies.toString());
                     break;
 
                 case 2:
                     ui.displayMsg("Du valgte: Serier");
-                    loadMediaData("Data/serier.txt");
+                    loadMediaData("src/Data/serier.txt");
                     ui.displayMsg(serier.toString());
                     break;
 
