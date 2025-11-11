@@ -32,12 +32,9 @@ public class StartMenu{
             if (userChoice == 1) {
                 username = ui.readInputText("Indtast username: ");
                 password = ui.readInputText("Indtast password: ");
-                ArrayList<String> data = io.readFile("/Data/logins.txt");
-                if (data.contains(data.contains(username+password))) {
-                    ui.displayMsg("du er nu logget ind som " + username);
-                    // brug den user som er lavet
+                ArrayList<String> data = io.readFile("/Data/Bruger/"+username+".txt");
+                ui.displayMsg("Du er nu logget ind som "+username);
 
-                }
             } else if (userChoice == 2) {
                 ui.displayMsg("Du skal nu lave et nyt login!");
                 username = ui.readInputText("Indtast username: ");
