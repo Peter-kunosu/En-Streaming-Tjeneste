@@ -3,6 +3,7 @@ import entity.Movie;
 import entity.Series;
 import util.TextUI;
 import util.FileIO;
+import entity.*;
 
 import java.util.ArrayList;
 
@@ -12,8 +13,59 @@ public class TemuNetflix {
 
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
+    User user = new User();
 
     private StartMenu startMenu;
+
+    public void menuChoices(){
+        ui.displayMsg(
+                "Welcome to the TemuNetflix" +
+                        "\n1. Movies" +
+                        "\n2. Serier" +
+                        "\n3. Sete Film" +
+                        "\n4. Sete Serier" +
+                        "\n5. Gemte Film" +
+                        "\n6. Gemte Serier"
+        );
+
+        int choice = ui.readInputNum("Vælg en mulighed:");
+
+        switch (choice) {
+            case 1:
+                ui.displayMsg("Du valgte: Movies");
+
+                break;
+
+            case 2:
+                ui.displayMsg("Du valgte: Serier");
+
+                break;
+
+            case 3:
+                ui.displayMsg("Du valgte: Sete Film");
+                user.showWatchedMovies();
+                break;
+
+            case 4:
+                ui.displayMsg("Du valgte: Sete Serier");
+                user.showWatchedSeries();
+                break;
+
+            case 5:
+                ui.displayMsg("Du valgte: Gemte Film");
+                user.showSavedMovies();
+                break;
+
+            case 6:
+                ui.displayMsg("Du valgte: Gemte Serier");
+                user.showSavedSeries();
+                break;
+
+            default:
+                ui.displayMsg("Ugyldigt valg – prøv igen!");
+                break;
+        }
+    }
 
     public void startStartMenu(){
 
