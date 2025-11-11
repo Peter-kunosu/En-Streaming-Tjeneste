@@ -13,7 +13,7 @@ public class TemuNetflix {
 
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
-    User user = new User();
+    User user = new User(StartMenu.getUsername(),StartMenu.getPassword());
 
     private StartMenu startMenu;
 
