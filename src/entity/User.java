@@ -12,6 +12,7 @@ public ArrayList<ArrayList<Media>> watchedSeries;
 ArrayList<Media> savedMovies;
 ArrayList<Media> savedSeries;
 
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -136,6 +137,10 @@ ArrayList<Media> savedSeries;
             System.out.println(" - " + sS);
             }
         }
+    }
+
+    public void showMovies(){
+
     }
 }
 

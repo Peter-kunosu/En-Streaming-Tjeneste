@@ -1,9 +1,9 @@
 import entity.Media;
 import entity.Movie;
 import entity.Series;
+import entity.User;
 import util.TextUI;
 import util.FileIO;
-import entity.*;
 
 import java.util.ArrayList;
 
@@ -14,8 +14,6 @@ public class TemuNetflix {
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
     User user = new User();
-
-    private StartMenu startMenu;
 
     public void menuChoices(){
         ui.displayMsg(
