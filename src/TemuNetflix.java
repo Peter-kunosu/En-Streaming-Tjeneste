@@ -37,13 +37,17 @@ public class TemuNetflix {
                 case 1:
                     ui.displayMsg("Du valgte: Film");
                     loadMediaData("src/Data/film.txt");
-                    ui.displayMsg(movies.toString());
+                    for (Media s : movies) {
+                        ui.displayMsg(s.toString());
+                    }
                     break;
 
                 case 2:
                     ui.displayMsg("Du valgte: Serier");
                     loadMediaData("src/Data/serier.txt");
-                    ui.displayMsg(serier.toString());
+                    for (Media s : serier) {
+                        ui.displayMsg(s.toString());
+                    }
                     break;
 
                 case 3:
