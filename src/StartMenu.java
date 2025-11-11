@@ -32,7 +32,7 @@ public class StartMenu{
             if (userChoice == 1) {
                 username = ui.readInputText("Indtast username: ");
                 password = ui.readInputText("Indtast password: ");
-                ArrayList<String> data = io.readFile("/Data/Bruger/"+username+".txt");
+                ArrayList<String> data = io.readFile("src/Data/Bruger/"+username+".txt");
                 ui.displayMsg("Du er nu logget ind som "+username);
 
             } else if (userChoice == 2) {

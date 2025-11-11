@@ -29,7 +29,7 @@ public class FileIO {
                 data.add(line);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Filen findes ikke");
+            System.out.println("Filen findes ikke på valgte path: "+ path);
         }
         return data;
     }
