@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.ArrayList;
+
 public class Series extends Media {
     private String activeYears;
     private int totalEpisodes;
@@ -17,8 +19,8 @@ public class Series extends Media {
         /*for (String[] season : episodes) {
             count += season.length;
         } */
-        for (int i = 0; i < episodes.length; i++){
-            for (int j = 0; j < episodes[i].length; j++){
+        for (int i = 0; i < episodes.length; i++) {
+            for (int j = 0; j < episodes[i].length; j++) {
                 count++;
             }
         }
@@ -57,6 +59,16 @@ public class Series extends Media {
                 ", seasons=" + episodes.length +
                 '}';
     }
-
+    public ArrayList<Media> getEpisodesAsMedia() {
+        ArrayList<Media> episodeList = new ArrayList<>();
+        for (int i = 0; i < episodes.length; i++) {
+            for (int j = 0; j < episodes[i].length; j++) {
+                // Lav et Media-objekt for hver episode
+                String episodeTitle = getTitle() + " - " + episodes[i][j];
+                episodeList.add(new Media(episodeTitle, getRating(), getCategory()));
+            }
+        }
+        return episodeList;
+    }
 }
 
