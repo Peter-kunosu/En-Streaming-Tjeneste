@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Series extends Media {
     private String activeYears;
+    private static String mediaType = "Serie";
     private int totalEpisodes;
     private String[][] episodes;
 
@@ -12,6 +13,10 @@ public class Series extends Media {
         this.episodes = episodes;
         this.activeYears = activeYears;
         this.totalEpisodes = countTotalEpisodes();
+    }
+
+    public static String getMediaType() {
+        return mediaType;
     }
 
     private int countTotalEpisodes() {
@@ -48,17 +53,6 @@ public class Series extends Media {
         this.totalEpisodes = countTotalEpisodes();
     }
 
-    @Override
-    public String toString() {
-        return "entity.Series{" +
-                "title='" + getTitle() + '\'' +
-                ", category='" + getCategory() + '\'' +
-                ", rating=" + getRating() +
-                ", activeYears='" + activeYears + '\'' +
-                ", totalEpisodes=" + totalEpisodes +
-                ", seasons=" + episodes.length +
-                '}';
-    }
     public ArrayList<Media> getEpisodesAsMedia() {
         ArrayList<Media> episodeList = new ArrayList<>();
         for (int i = 0; i < episodes.length; i++) {
@@ -69,6 +63,12 @@ public class Series extends Media {
             }
         }
         return episodeList;
+    }
+    @Override
+    public String toString() {
+        return super.toString()+
+                " | Media type = " + getMediaType()
+                ;
     }
 }
 

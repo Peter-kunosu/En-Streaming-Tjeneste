@@ -38,10 +38,10 @@ public class Media {
 
     @Override
     public String toString() {
-        return "entity.Media{" +
-                "title='" + title + '\'' +
-                ", rating=" + rating +
-                ", category='" + category + '\'' +
-                '}';
+        return
+                "| Title = " + title +
+                " | Rating = " + rating +
+                " | Category = " + category
+                ;
     }
 }
