@@ -114,7 +114,7 @@ public class TemuNetflix {
                     userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
                     if (ui.choiceYN("du har nu valgt: "+user.savedSeries.get(userChoice)+" er det korrekt? (Y/N)")){
                         ui.displayMsg("ser nu "+user.savedSeries.get(userChoice));
-                        user.savedSeries.add((Series) serier.get(userChoice));
+                        user.watchedSeries.add((Series) serier.get(userChoice));
                     }
                     break;
 
