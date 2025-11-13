@@ -5,13 +5,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class User{
-String username;
-String password;
-public ArrayList<Media> watchedMovies;
-    public ArrayList<Series> watchedSeries = new ArrayList<>();
-public ArrayList<Media> savedMovies;
-    public ArrayList<Series> savedSeries = new ArrayList<>();
+public class User {
+    String username;
+    String password;
+    public ArrayList<Media> watchedMovies;
+    public ArrayList<Series> watchedSeries;
+    public ArrayList<Media> savedMovies;
+    public ArrayList<Series> savedSeries;
 
 
     public User(String username, String password) {
@@ -23,20 +23,20 @@ public ArrayList<Media> savedMovies;
         this.savedSeries = new ArrayList<>();
     }
 
-    public void CreateUserFile(String path){
-        if(!path.endsWith(".txt")){
+    public void CreateUserFile(String path) {
+        if (!path.endsWith(".txt")) {
             path += ".txt";
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-            writer.write("Username: "+username);
+            writer.write("Username: " + username);
             writer.newLine();
-            writer.write("Password: "+password);
+            writer.write("Password: " + password);
             writer.newLine();
             writer.newLine();
 
             writer.write("Watched Movies:");
             writer.newLine();
-            if(watchedMovies. isEmpty()){
+            if (watchedMovies.isEmpty()) {
                 writer.write("- none");
                 writer.newLine();
             } else {
@@ -49,10 +49,10 @@ public ArrayList<Media> savedMovies;
 
             writer.write("Watched Series:");
             writer.newLine();
-            if(watchedSeries. isEmpty()){
+            if (watchedSeries.isEmpty()) {
                 writer.write("- none");
                 writer.newLine();
-            } else  {
+            } else {
                 for (Series series : watchedSeries) {
                     writer.write("- " + series.getTitle());
                     writer.newLine();
@@ -62,7 +62,7 @@ public ArrayList<Media> savedMovies;
 
             writer.write("Saved Movies");
             writer.newLine();
-            if(savedMovies.isEmpty()){
+            if (savedMovies.isEmpty()) {
                 writer.write("- none");
                 writer.newLine();
             } else {
@@ -75,7 +75,7 @@ public ArrayList<Media> savedMovies;
 
             writer.write("Saved Series");
             writer.newLine();
-            if(savedSeries.isEmpty()){
+            if (savedSeries.isEmpty()) {
                 writer.write("- none");
                 writer.newLine();
             } else {
@@ -85,7 +85,7 @@ public ArrayList<Media> savedMovies;
                 }
             }
             System.out.println("Brugerfil gemt: " + path);
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Fejl ved skrivning af fil: " + e.getMessage());
         }
     }
@@ -164,22 +164,22 @@ public ArrayList<Media> savedMovies;
     }
 
 
-    public void showWatchedMovies(){
+    public void showWatchedMovies() {
         int counter = 0;
-        if(watchedMovies.isEmpty()){
+        if (watchedMovies.isEmpty()) {
             System.out.println("No watched movies");
         } else {
             System.out.println("Watched movies:");
             for (Media m : watchedMovies) {
                 counter++;
-                System.out.println(counter+". " + m);
+                System.out.println(counter + ". " + m);
             }
         }
     }
 
-    public void showWatchedSeries(){
+    public void showWatchedSeries() {
         int counter = 0;
-        if(watchedSeries.isEmpty()){
+        if (watchedSeries.isEmpty()) {
             System.out.println("No watched series");
         } else {
             System.out.println("Watched series:");
@@ -190,23 +190,22 @@ public ArrayList<Media> savedMovies;
         }
     }
 
-    public void showSavedMovies(){
+    public void showSavedMovies() {
         int counter = 0;
-        if(savedMovies.isEmpty()){
+        if (savedMovies.isEmpty()) {
             System.out.println("No saved movies");
-        }
-        else {
+        } else {
             System.out.println("Saved movies:");
             for (Media sM : savedMovies) {
                 counter++;
-                System.out.println(counter+". " + sM);
+                System.out.println(counter + ". " + sM);
             }
         }
     }
 
-    public void showSavedSeries(){
+    public void showSavedSeries() {
         int counter = 0;
-        if(savedSeries.isEmpty()){
+        if (savedSeries.isEmpty()) {
             System.out.println("No saved series");
         } else {
             System.out.println("Saved series:");

@@ -7,9 +7,8 @@ import util.FileIO;
 import java.util.ArrayList;
 
 public class TemuNetflix {
-    public ArrayList<Media> movies = new ArrayList<>();;
-    public ArrayList<Series> serier = new ArrayList<>();;
-    private ArrayList<String> options;
+    public ArrayList<Media> movies = new ArrayList<>();
+    public ArrayList<Series> serier = new ArrayList<>();
 
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
@@ -81,9 +80,9 @@ public class TemuNetflix {
                     ui.displayMsg("Du valgte: Sete Film");
                     user.showWatchedMovies();
                     userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
-                    if (ui.choiceYN("du har nu valgt: "+user.watchedMovies.get(userChoice)+" er det korrekt? (Y/N)")){
+                    if (ui.choiceYN("Du har nu valgt: "+user.watchedMovies.get(userChoice)+" er det korrekt? (Y/N)")){
                         //movies.get(counter).play
-                        ui.displayMsg("ser nu "+user.watchedMovies.get(userChoice));
+                        ui.displayMsg("Ser nu "+user.watchedMovies.get(userChoice).getTitle());
                     }
                     break;
 
@@ -91,9 +90,9 @@ public class TemuNetflix {
                     ui.displayMsg("Du valgte: Sete Serier");
                     user.showWatchedSeries();
                     userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
-                    if (ui.choiceYN("du har nu valgt: "+user.watchedSeries.get(userChoice)+" er det korrekt? (Y/N)")){
+                    if (ui.choiceYN("Du har nu valgt: "+user.watchedSeries.get(userChoice)+" er det korrekt? (Y/N)")){
                         //movies.get(counter).play
-                        ui.displayMsg("ser nu "+user.watchedSeries.get(userChoice));
+                        ui.displayMsg("Ser nu "+user.watchedSeries.get(userChoice).getTitle());
                     }
                     break;
 
@@ -101,9 +100,9 @@ public class TemuNetflix {
                     ui.displayMsg("Du valgte: Gemte Film");
                     user.showSavedMovies();
                     userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
-                    if (ui.choiceYN("du har nu valgt: "+user.savedMovies.get(userChoice)+" er det korrekt? (Y/N)")){
+                    if (ui.choiceYN("Du har nu valgt: "+user.savedMovies.get(userChoice)+" er det korrekt? (Y/N)")){
                         //movies.get(counter).play
-                        ui.displayMsg("ser nu "+user.savedMovies.get(userChoice));
+                        ui.displayMsg("Ser nu "+user.savedMovies.get(userChoice).getTitle());
                         user.watchedMovies.add(movies.get(userChoice));
                     }
                     break;
@@ -112,8 +111,8 @@ public class TemuNetflix {
                     ui.displayMsg("Du valgte: Gemte Serier");
                     user.showSavedSeries();
                     userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
-                    if (ui.choiceYN("du har nu valgt: "+user.savedSeries.get(userChoice)+" er det korrekt? (Y/N)")){
-                        ui.displayMsg("ser nu "+user.savedSeries.get(userChoice));
+                    if (ui.choiceYN("Du har nu valgt: "+user.savedSeries.get(userChoice)+" er det korrekt? (Y/N)")){
+                        ui.displayMsg("Ser nu "+user.savedSeries.get(userChoice).getTitle());
                         user.watchedSeries.add((Series) serier.get(userChoice));
                     }
                     break;
@@ -131,9 +130,6 @@ public class TemuNetflix {
         }
     }
 
-    public void startStartMenu(){
-
-    }
     public void loadMediaData(String path) {
         ArrayList<String> data = io.readFile(path);
 

@@ -24,18 +24,6 @@ public class Media {
         return category;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     @Override
     public String toString() {
         return

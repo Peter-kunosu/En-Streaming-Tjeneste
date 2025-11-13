@@ -19,16 +19,8 @@ public class Movie extends Media {
         return duration;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
     public int getReleaseDate() {
         return releaseDate;
-    }
-
-    public void setRealeaseDate(int releaseDate) {
-        this.releaseDate = releaseDate;
     }
 
     @Override

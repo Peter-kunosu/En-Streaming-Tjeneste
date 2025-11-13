@@ -1,7 +1,5 @@
-import java.io.File;
 import java.util.ArrayList;
 
-import entity.Media;
 import entity.User;
 import util.FileIO;
 import util.TextUI;

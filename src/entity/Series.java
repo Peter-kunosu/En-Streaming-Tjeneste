@@ -44,15 +44,6 @@ public class Series extends Media {
         return episodes;
     }
 
-    public void setActiveYears(String activeYears) {
-        this.activeYears = activeYears;
-    }
-
-    public void setEpisode(String[][] episodes) {
-        this.episodes = episodes;
-        this.totalEpisodes = countTotalEpisodes();
-    }
-
     public ArrayList<Media> getEpisodesAsMedia() {
         ArrayList<Media> episodeList = new ArrayList<>();
         for (int i = 0; i < episodes.length; i++) {
