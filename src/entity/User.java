@@ -101,6 +101,8 @@ public ArrayList<Media> savedMovies;
             }
 
             ArrayList<String> newLines = new ArrayList<>();
+            newLines.add("");
+            newLines.add("-- Updated --");
             newLines.add("Username: " + username);
             newLines.add("Password: " + password);
             newLines.add("");
