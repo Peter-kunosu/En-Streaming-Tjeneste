@@ -18,6 +18,8 @@ public class TemuNetflix {
     public void menuChoices() {
         boolean running = true;
         int userChoice;
+        loadMediaData("src/Data/film.txt");
+        loadMediaData("src/Data/serier.txt");
 
         while (running) {
             ui.displayMsg(
@@ -36,12 +38,13 @@ public class TemuNetflix {
             switch (choice) {
                 case 1:
                     ui.displayMsg("Du valgte: Film");
-                    loadMediaData("src/Data/film.txt");
+
                     for (Media s : movies) {
                         counter++;
                         ui.displayMsg(counter+":" +s.toString());
                     }
                     userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
+                    ui.displayMsg("Du har valgt: "+movies.get(userChoice).toString());
                     int userChoice2 = ui.readInputNum("1. Vil du se filmen nu eller 2. gemme den?");
                     if (userChoice2 == 1) {
                         ui.displayMsg("Filmen afspilles nu!");
@@ -53,12 +56,13 @@ public class TemuNetflix {
                     break;
                 case 2:
                     ui.displayMsg("Du valgte: Serier");
-                    loadMediaData("src/Data/serier.txt");
-                    for (int i = 0; i < serier.size(); i++) {
-                        ui.displayMsg((i+1) + ": " + serier.get(i).getTitle());
+                    for (Media s : serier) {
+                        counter++;
+                        ui.displayMsg(counter+":" +s.toString());
                     }
 
                     userChoice = ui.readInputNum("Vælg en serie fra listen") - 1;
+                    ui.displayMsg("Du har valgt: "+serier.get(userChoice).toString());
                     userChoice2 = ui.readInputNum("1. Vil du se serien nu eller 2. gemme den?");
 
                     if (userChoice2 == 1) {
@@ -110,7 +114,7 @@ public class TemuNetflix {
                     userChoice = ui.readInputNum("Vælg film fra listen ovenovre")-1;
                     if (ui.choiceYN("du har nu valgt: "+user.savedSeries.get(userChoice)+" er det korrekt? (Y/N)")){
                         ui.displayMsg("ser nu "+user.savedSeries.get(userChoice));
-                        user.savedSeries.add((Series) serier.get(userChoice));
+                        user.watchedSeries.add((Series) serier.get(userChoice));
                     }
                     break;
 
