@@ -101,8 +101,8 @@ public ArrayList<Media> savedMovies;
             }
 
             ArrayList<String> newLines = new ArrayList<>();
-            newLines.add("Username: " + this.username);
-            newLines.add("Password: " + this.password);
+            newLines.add("Username: " + username);
+            newLines.add("Password: " + password);
             newLines.add("");
 
             int counter = 0;
@@ -150,7 +150,11 @@ public ArrayList<Media> savedMovies;
             }
             newLines.add("");
 
-            java.nio.file.Files.write(file.toPath(), newLines);
+            java.nio.file.Files.write(
+                    file.toPath(),
+                    newLines,
+                    java.nio.file.StandardOpenOption.APPEND
+            );
 
         } catch (IOException e) {
             System.out.println("Fejl ved opdatering af fil: " + e.getMessage());

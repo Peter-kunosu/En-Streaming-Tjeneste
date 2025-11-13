@@ -13,14 +13,6 @@ public class StartMenu{
     private static String username;
     private static String password;
 
-    public static String getUsername() {
-        return username;
-    }
-
-    public static String getPassword() {
-        return password;
-    }
-
     public static void start() {
         options.add("Vil du logge ind eller lave et nyt login");
         options.add("1: Login");
@@ -48,6 +40,14 @@ public class StartMenu{
             ui.displayMsg("input ikke 1 eller 2!");
         }
 
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
+    public static String getPassword() {
+        return password;
     }
 
 }
